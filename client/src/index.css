@@ -1,0 +1,19 @@
+/* Reset default margin and padding for the entire document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure body takes full height and uses a default font */
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ensure root element expands properly */
+#root {
+  height: 100%;
+}
