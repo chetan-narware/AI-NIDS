@@ -224,25 +224,56 @@ Includes:
 # Installation & Setup
 
 ## 1. Clone the Repository
+```bash
 git clone https://github.com/your-username/AI-NIDS.git
 cd AI-NIDS
-
-## 2. Backend Setup
+2. Backend Setup
+bash
+Copy code
 cd backend
 pip install -r requirements.txt
 python app.py
-
-## 3. Kafka Setup
+3. Kafka Setup
 Start Zookeeper:
+bash
+Copy code
 zookeeper-server-start.sh config/zookeeper.properties
 Start Kafka:
+bash
+Copy code
 kafka-server-start.sh config/server.properties
 Create topics:
+bash
+Copy code
 kafka-topics.sh --create --topic packets --bootstrap-server localhost:9092
 kafka-topics.sh --create --topic features --bootstrap-server localhost:9092
-
-## 4. Frontend Setup
+4. Frontend Setup
+bash
+Copy code
 cd frontend
 npm install
 npm start
-
+Folder Structure
+plaintext
+Copy code
+AI-NIDS/
+│
+├── backend/
+│   ├── producers/
+│   ├── consumers/
+│   ├── models/
+│   ├── charts/
+│   ├── app.py
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│
+├── images/
+│   ├── home.png
+│   ├── logs.png
+│   ├── live_predictions.png
+│   ├── architecture_flow.png
+│
+└── README.md
+---
