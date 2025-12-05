@@ -218,62 +218,72 @@ Includes:
 - Real-time sync  
 - Scalable storage  
 - Docker-ready services  
-
 ---
 
-# Installation & Setup
-
-## 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/AI-NIDS.git
-cd AI-NIDS
-2. Backend Setup
-bash
-Copy code
-cd backend
-pip install -r requirements.txt
-python app.py
-3. Kafka Setup
-Start Zookeeper:
-bash
-Copy code
-zookeeper-server-start.sh config/zookeeper.properties
-Start Kafka:
-bash
-Copy code
-kafka-server-start.sh config/server.properties
-Create topics:
-bash
-Copy code
-kafka-topics.sh --create --topic packets --bootstrap-server localhost:9092
-kafka-topics.sh --create --topic features --bootstrap-server localhost:9092
-4. Frontend Setup
-bash
-Copy code
-cd frontend
-npm install
-npm start
-Folder Structure
-plaintext
-Copy code
+## Folder Structure
+```
 AI-NIDS/
 │
-├── backend/
-│   ├── producers/
-│   ├── consumers/
-│   ├── models/
-│   ├── charts/
-│   ├── app.py
+├── backend/            # Python backend API and processing logic
+│   ├── producers/      # Kafka producers for network packet capture
+│   ├── consumers/      # Kafka consumers for processing data
+│   ├── models/         # Trained AI/ML models
+│   ├── charts/         # Logic for generating analytics charts
+│   ├── app.py          # Main backend application entry point
 │
-├── frontend/
-│   ├── src/
-│   ├── public/
+├── frontend/           # React frontend application
+│   ├── src/            # Source code for UI components
+│   ├── public/         # Static assets
 │
-├── images/
+├── images/             # Documentation images and screenshots
 │   ├── home.png
 │   ├── logs.png
 │   ├── live_predictions.png
 │   ├── architecture_flow.png
 │
 └── README.md
----
+```
+## Installation & Setup
+Follow these steps to set up the project locally.
+
+## 1. Clone the Repository
+```
+git clone [https://github.com/your-username/AI-NIDS.git](https://github.com/your-username/AI-NIDS.git)
+cd AI-NIDS
+```
+
+## 2. Backend Setup
+
+Navigate to the backend directory, install dependencies, and start the application.
+```
+cd backend
+pip install -r requirements.txt
+python app.py
+```
+
+## 3. Kafka Setup
+
+Ensure you have Apache Kafka installed and added to your path. You will need three separate terminal windows for this step.
+Terminal 1: Start Zookeeper
+```
+zookeeper-server-start.sh config/zookeeper.properties
+```
+Terminal 2: Start Kafka Server
+```
+kafka-server-start.sh config/server.properties
+```
+Terminal 3: Create Topics
+```
+# Create topic for raw packets
+kafka-topics.sh --create --topic packets --bootstrap-server localhost:9092
+# Create topic for processed features
+kafka-topics.sh --create --topic features --bootstrap-server localhost:9092
+```
+
+## 4. Frontend Setup
+Navigate to the frontend directory, install dependencies, and launch the development server.
+```
+cd frontend
+npm install
+npm start
+```
